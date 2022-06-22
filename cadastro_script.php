@@ -24,19 +24,27 @@
           $email = $_POST['email'];
           $data_nascimento = $_POST['data_nascimento'];
 
-           $sql = "INSERT INTO `pessoas` ( `nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
+          $foto = $_FILES['foto'];
+          $nome_foto = mover_foto($foto);
+          if ($nome_foto == 0) {
+            $nome_foto = null;
+          } 
+          
+
+           $sql = "INSERT INTO `pessoas` ( `nome`, `endereco`, `telefone`, `email`, `data_nascimento`, `foto`) VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento', '$nome_foto')";
 
            if (mysqli_query($connect, $sql)) {
+            if ($nome_foto != null){
+              echo "<img src='img/$nome_foto' title='$nome_foto' class='mostra_foto'>";
+            }
             mensagem("$nome Cadastrado com sucesso!", 'success');
            } else {
             mensagem("$nome Nao foi cadastrado!", 'danger');
            }
            
-
         ?>
         <hr>
-        <a href="index.php" class="btn btn-primary">Voltar</a>
-
+        <a href="cadastro.php" class="btn btn-primary">Voltar</a>
         </div>
     </div>
 

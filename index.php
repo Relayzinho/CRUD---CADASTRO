@@ -20,7 +20,7 @@
   <h1 class="display-4">Cadastro Web</h1>
   <p class="lead">Sistema simplificado de Cadastros.</p>
   <hr class="my-4">
-  <p>Acesse as funcoes.</p>
+  <p>Acesse as funções.</p>
   <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastro</a>
   <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisar</a>
 

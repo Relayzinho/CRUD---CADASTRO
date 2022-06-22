@@ -18,7 +18,7 @@
         <?php 
             include "conexao.php";
             $id = $_POST['id'];
-            $nome = $_POST['name'];  
+            $nome = $_POST['nome'];  
 
              $sql = "DELETE from  'pessoas'  WHERE cod_pessoa = $id";
 
