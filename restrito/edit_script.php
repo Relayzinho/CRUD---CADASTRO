@@ -14,32 +14,41 @@
     <!--CRIANDO DIVISOES-->
 
     <div class="container">
-        <div class="row">
-        <?php
-          include "conexao.php";
+      <div class="row">
+        <div class="col-sm-12">
+          <?php 
+            include "conexao.php";
+            $id = $_POST['id'];
+            $nome = $_POST['nome'];
+            $endereco = $_POST['endereco'];
+            $telefone = $_POST['telefone'];
+            $email = $_POST['email'];
+            $data_nascimento = $_POST['data_nascimento'];
+            $foto_antiga = $_POST['foto_antiga'];
+            $nova_foto = $_FILES['foto'] ?? ''; 
 
-          $id = $_POST['id'];
-          $nome = $_POST['name'];
-          $endereco = $_POST['endereco'];
-          $telefone = $_POST['telefone'];
-          $email = $_POST['email'];
-          $data_nascimento = $_POST['data_nascimento'];
+            if ($nova_foto == '') {
+              $foto = $foto_antiga;              
+            } 
+             else {
+              $foto = mover_foto($nova_foto);
+             }
 
-           //$sql = "INSERT INTO `pessoas` ( `nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
-           $sql = "UPDATE `pessoas` set `nome` = '$nome', `endereco` = '$endereco', `telefone` = '$telefone', `email` = '$email', `data_nascimento` = '$data_nascimento' WHERE cod_pessoa = $id";
-
-           if (mysqli_query($connect, $sql)) {
-            mensagem("$nome Alterado com sucesso!", 'success');
-           } else {
-            mensagem("$nome Nao foi alterado!", 'danger');
-           }
-           
-
-        ?>
-        <hr>
-        <a href="index.php" class="btn btn-primary">Voltar</a>
-
-        </div>
+          
+            $sql = "UPDATE  `pessoas`  set `nome` = '$nome', `endereco` = '$endereco', `telefone` = '$telefone', `email` = '$email', `data_nascimento` = '$data_nascimento', `foto` = $foto WHERE cod_pessoa = $id";
+            
+            if ( mysqli_query($connect, $sql) ) {
+                if ($foto != null) {             
+                  echo "<img src='img/$nome_foto' title='$nome_foto' class='mostra_foto'>";
+                }
+                mensagem("$nome alterado com sucesso!",'success');
+            } else
+                mensagem("$nome NÃO alterado!",'danger');
+           ?>
+           <hr>
+           <a href="index.php" class="btn btn-primary">Voltar</a>
+        </div>      
+      </div>
     </div>
 
 

@@ -29,31 +29,28 @@
               </form>
               <?php   
                   if (isset($_POST['login'])) {
-                    $login = $_POST['login'];                  
-                    $senha = md5($_POST['senha']) ;
+                    $login = $_POST['login'];  
+                    $senha = $_POST['senha']; 
+                  }               
+                    //$senha = md5($_POST['senha']) ;//
 
                     include "restrito/conexao.php";
-                    $sql = "SELECT * from usuarios WHERE login = '$login' AND senha = '$senha'";
+                    //$sql = "SELECT * from 'usuarios' WHERE login = '$login' AND senha = '$senha'";//
                     
+                    //if ($result = mysqli_query($connect, $sql)) {
+                    //  $num_registros = mysqli_num_rows($result);
+                     // if ($num_registros == 1) {
+                     //   $linha = mysqli_fetch_assoc($result);
 
-                    if ($result = mysqli_query($connect, $sql)) {
-                      $num_registros = mysqli_num_rows($result);
-                      if ($num_registros == 1) {
-                        $linha = mysqli_fetch_assoc($result);
 
-
-                        if (($login == $linha['login']) and ($senha == $linha['senha'])) {
+                        if (($login == "admin") and ($senha == "admin")) {
                         session_start();
-                        $_SESSION['login'] = "Robson";
+                        $_SESSION['login'] = "Guilherme";
                         header("location: restrito");
                       } else {
                         echo "Login inválido!";
                       }
-                      } else {
-                        echo "Login ou senha não encontrados ou inválido.";
-                      }
-                    } else { echo "Nenhum resultado do Banco de Dados"; }
-                  }
+
                ?>
           </div>
       </div>

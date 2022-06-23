@@ -14,13 +14,14 @@
     <!--CRIANDO DIVISOES-->
 
     <div class="container">
-        <div class="row">
-        <?php 
+      <div class="row">
+        <div class="col-sm-12">
+          <?php 
             include "conexao.php";
             $id = $_POST['id'];
             $nome = $_POST['nome'];  
 
-             $sql = "DELETE from  'pessoas'  WHERE cod_pessoa = $id";
+             $sql = "DELETE from  `pessoas`  WHERE cod_pessoa = $id";
 
             if (mysqli_query($connect, $sql)) {
                 mensagem("$nome excluido com sucesso!",'success');
@@ -28,10 +29,10 @@
                 mensagem("$nome NÃO excluido!",'danger');
 
            ?> 
-        <hr>
-        <a href="pesquisa.php" class="btn btn-primary">Voltar</a>
-
-        </div>
+           <hr>
+           <a href="pesquisa.php" class="btn btn-primary">Voltar</a>
+        </div>      
+      </div>
     </div>
 
 
