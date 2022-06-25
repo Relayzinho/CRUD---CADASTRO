@@ -1,30 +1,31 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <!-- Required meta tags (DEIXA O SITE RESPONSIVO)-->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Alteração de Cadastro</title>
   </head>
   <body>
 
-  <!--Script para fazer a requisao no bd e pesquisar novamente os dados do id-->
-  <?php 
+    <!--Script para fazer a requisao no bd e pesquisar novamente os dados do id-->
+    <?php 
 
-include "conexao.php";
-$id = $_GET['id'] ?? '';
-$sql = "SELECT * FROM pessoas WHERE cod_pessoa = $id";
+      include "conexao.php";
+      $id = $_GET['id'] ?? '';
+      $sql = "SELECT * FROM pessoas WHERE cod_pessoa = $id";
 
-$dados = mysqli_query($connect, $sql);
-$linha = mysqli_fetch_assoc($dados);
+      $dados = mysqli_query($conn, $sql);
+      $linha = mysqli_fetch_assoc($dados);
 
 
-?>
+     ?>
 
-    <!--CRIANDO DIVISOES-->
+<!--CRIANDO DIVISOES-->
 
     <div class="container">
       <div class="row">
@@ -69,6 +70,10 @@ $linha = mysqli_fetch_assoc($dados);
       </div>
     </div>
 
+
+   
+
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,11 +1,12 @@
-<!--CONEXAO COM BANCO DE DADOS-->
-<?php
-    $server = "localhost";
-    $user = "root";
-    $pass = "";
-    $bd = "almirempresa";
+<?php 
+	$server = "localhost";
+	$user = "root";
+	$pass = "";
+	$bd = "empresa";
 
-	if ( $connect = mysqli_connect($server, $user, $pass, $bd) ) {
+	$dir = 'img/'; // Diretório padrão das fotos cadastradas.
+
+	if ( $conn = mysqli_connect($server, $user, $pass, $bd) ) {
 		// echo "Conectado!";
 	} else
 		echo "Erro!";
@@ -15,17 +16,15 @@
   				$texto
 			  </div>";
 	}
-  
 
-//Para alterar o jeito de mostrar a data//
-function mostra_data($data) {
-    $d = explode('-', $data);
-    $escreve = $d[2] ."/" .$d[1] ."/" .$d[0];
-    return $escreve;
-}		
+	//Para alterar o jeito de mostrar a data//
+	function mostra_data($data) {
+		$d = explode('-', $data);
+		$escreve = $d[2] ."/" .$d[1] ."/" .$d[0];
+		return $escreve;
+	}	
 
-
-    // funcao para mover foto para pasta//
+	// funcao para mover foto para pasta//
 	function mover_foto($vetor_foto) {
 		$vtipo = explode("/", $vetor_foto['type']);
 		$tipo = $vtipo[0] ?? '';
@@ -39,4 +38,6 @@ function mostra_data($data) {
 		}
 	}
 
-?>
+	
+
+ ?>

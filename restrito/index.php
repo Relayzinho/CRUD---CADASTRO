@@ -1,10 +1,6 @@
-<?php
-  include "../validar.php";
-?>
-
-
+<?php  include "../validar.php";  ?>
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <!-- Required meta tags (DEIXA O SITE RESPONSIVO)-->
     <meta charset="utf-8">
@@ -20,8 +16,8 @@
       <div class="row">
         <div class="col">
           <div class="jumbotron">
-            <h1 class="display-4">Cadastro Web</h1>
-            <p class="lead">Este é um sistema simplificado de cadastros. </p>
+            <h1 class="display-4">Cadastro</h1>
+            <p class="lead">Este é um sistema simplificado de cadastros.</p>
             <hr class="my-4">
             <p>Acesse as funções.</p>
             <a class="btn btn-primary btn-lg" href="cadastro.php" role="button">Cadastro</a>

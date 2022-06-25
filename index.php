@@ -37,10 +37,10 @@
                     include "restrito/conexao.php";
                     //$sql = "SELECT * from 'usuarios' WHERE login = '$login' AND senha = '$senha'";//
                     
-                    //if ($result = mysqli_query($connect, $sql)) {
-                    //  $num_registros = mysqli_num_rows($result);
-                     // if ($num_registros == 1) {
-                     //   $linha = mysqli_fetch_assoc($result);
+                    //if ($result = mysqli_query($connect, $sql)) {//
+                    //  $num_registros = mysqli_num_rows($result);//
+                     // if ($num_registros == 1) {//
+                     //   $linha = mysqli_fetch_assoc($result);//
 
 
                         if (($login == "admin") and ($senha == "admin")) {
